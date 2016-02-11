@@ -1,0 +1,28 @@
+{
+  "name": "wordpanda",
+  "version": "1.0.0",
+  "description": "autocomplete",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "shot": "^3.0.1",
+    "tape": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olot/wordpanda.git"
+  },
+  "author": "Olot Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olot/wordpanda/issues"
+  },
+  "homepage": "https://github.com/olot/wordpanda#readme"
+}
