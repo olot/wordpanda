@@ -1,30 +1,51 @@
-var test = require('tape');
-var port = process.env.PORT || 3000;
 var http = require('http');
+var port = process.env.PORT || 3000;
+var ob = require('./index.js');
 var fs = require('fs');
-var ac = fs.readFileSync('./index.html');
+var index = fs.readFileSync(__dirname + '/index.html');
+ob.import(function(){});
+var word = "co";
 
-function handler(request, response){
-  var url = request.url;
-  if (url.length === 1){
-    response.writeHead(200, {"Content-Type":"text/html"}); {
-      console.log(response.payload);
-      response.end(ac);
-  }
 
-}else{
-  //reponse.end("Hello World!");
+
+http.createServer(function handler(request, response) {
+
+var url = request.url;
+
+  if (url.length === 1) {
+    response.writeHead(200, {"Content-Type": "text/html"});
+    response.end(index.toString());
+  } else if (url.indexOf("/define") > -1) {
+  var match = ob.findWord(word);
+
+} else if (url === '/favicon.ico') {
+
+response.writeHead(200, {'Content-Type': 'image/x-icon'} );
+response.end();
 }
-}
-module.exports = {
+response.end('hello world!');
 
-  handler: handler
-};
+}).listen(port);
 
 
 
-
-
-//var index = fs.readFileSync(__dirname + '/index.html');
-http.createServer(handler).listen(port);
 console.log('node http server listening on http://localhost:' + port);
+
+
+// ob.import = function(callback) {
+//   if (!callback || typeof callback !== 'function') {
+//     return new Error('callback argument MUST be a function');
+//   }
+//   var wordfile = __dirname + '/words.txt';
+//   fs.readFile(wordfile, 'utf8', function (err, words) {
+//     ob.words = data.split('\n');
+//     return callback(err, ob.words);
+//   });
+// };
+//
+//
+// module.exports = {
+//
+//   handler: handler
+//   //import: ob
+// };
