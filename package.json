@@ -6,11 +6,12 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "hyperquest": "^1.2.0",
     "shot": "^3.0.1",
     "tape": "^4.4.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "test",
     "start": "node server.js"
