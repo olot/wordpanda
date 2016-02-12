@@ -1,6 +1,7 @@
 var tape = require('tape');
 var hyperquest = require('hyperquest');
 var server = require('../server.js');
+var fs = require('fs');
 
 tape("Test 1 = 1", function(el) {
   el.equal(1, 1, "Passed!");
@@ -34,16 +35,23 @@ tape('Checking that the client has recived the html <h1> tag', function (t) {
   });
 });
 
+tape('when the url contains "/define" the findwords method should be invoked', function (t) {
+  hyperquest('http://localhost:3000/define', function (err, res) {
+    var data = '';
+    res.on('data', function(chunk) {
+      data += chunk.toString('utf8');
+      console.log('data: '+ data);
+    });
+    res.on('end', function() {
+      t.ok(data.indexOf('[]') > -1, "woooo");
+      t.end();
+    });
+  });
+  //     t.ok(found.length, 5, "passed");
+  //     t.end();
+  // // });
+});
 
+tape('test the length of the array, it should return 5', function() {
 
-
-
-
-
-//
-// tape("When the hompage is a loaded a header of Word Panda should be displayed", function(t){
-//   hyperquest('http://localhost:3000', function
-//   var header = res.payload;
-//   t.expect("<h1>Word Panda</h1>" );
-//   t.end();
-// });
+});
