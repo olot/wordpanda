@@ -8,7 +8,14 @@ function defineWord(wordToBeDefined, callback) {
   console.log(url);
   request(url, function(error, response, body) {
     if (!error && response.statusCode == 200) {
-      var definition = JSON.parse(body)[0].text;
+      var JSONArray = JSON.parse(body)[0];
+      var definition;
+      if(JSONArray){
+        definition = JSONArray.text;
+      }
+      else {
+        definition = 'Sorry no Definition!';
+      }
       console.log("defintion in back end ----->", definition);
       return callback(definition);
     }
