@@ -2,6 +2,8 @@ var tape = require('tape');
 var hyperquest = require('hyperquest');
 var server = require('../server.js');
 var fs = require('fs');
+var handler = require('../handler.js');
+var handler = require('../backend.js');
 
 tape("Test 1 = 1", function(el) {
   el.equal(1, 1, "Passed!");
@@ -52,6 +54,6 @@ tape('when the url contains "/define" the findwords method should be invoked', f
   // // });
 });
 
-tape('test the length of the array, it should return 5', function() {
+tape('get a word from the url', function() {
 
 });
