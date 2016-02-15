@@ -1,67 +1,73 @@
 describe("user interface", function() {
-var player;
-var song;
-
-// beforeEach(function() {
-//   done();
-// });
-
-it("clicking button should do something", function(done) {
-  // player.play(song);
-  // expect(player.currentlyPlayingSong).toEqual(song);
   //
-  // //demonstrates use of custom matcher
-  // expect(player).toBePlaying(song);
-  var clicked = 'awesome';
-  document.getElementById("button").addEventListener("click", function() {
-    console.log('ksdjflksdajf;ldsa');
-    clicked = true;
+  // it("clicking button should do something", function(done) {
+  //
+  //   var clicked;
+  //   document.getElementById("button").addEventListener("click", function() {
+  //     clicked = "clicked";
+  //   });
+  //   document.getElementById("button").click();
+  //   expect(clicked).toBe("clicked");
+  //   done();
+  // });
+  //
+  //
+  // it("user input is stored in a variable", function() {
+  //   document.getElementById("search").value = "boa";
+  //   document.getElementById("button").click();
+  //
+  //   expect(input).toBe("boa");
+  // });
+
+  it("releasing a key after you have typed more than 3 letters should store user input into a variable", function(done) {
+    var userInput;
+    document.getElementById("search").value = "boa";
+    document.getElementById("button").addEventListener("click", function() {
+      userInput = document.getElementById("search").value;
+      console.log(userInput);
+    });
+    document.getElementById("button").click();
+    setTimeout(function() {
+      expect(userInput).toBe("boa");
+      done();
+    }, 0);
   });
 
-  setTimeout(function() {
-    expect(clicked).toBe(true);
-    done();
-  }, 4000);
-});
+  it("releasing a key after you have typed more than 3 letters should fire off a callback function", function(done) {
+    var testInput;
+    function callback() {
+      testInput = "called";
+    }
+    document.getElementById("button").addEventListener("click", function() {
+      return callback();
+    });
+    document.getElementById("button").click();
+    setTimeout(function() {
+      expect(testInput).toBe("called");
+      done();
+    }, 0);
+  });
 
-// describe("when song has been paused", function() {
-//   beforeEach(function() {
-//     player.play(song);
-//     player.pause();
-//   });
-//
-//   it("should indicate that the song is currently paused", function() {
-//     expect(player.isPlaying).toBeFalsy();
-//
-//     // demonstrates use of 'not' with a custom matcher
-//     expect(player).not.toBePlaying(song);
-//   });
-//
-//   it("should be possible to resume", function() {
-//     player.resume();
-//     expect(player.isPlaying).toBeTruthy();
-//     expect(player.currentlyPlayingSong).toEqual(song);
-//   });
-// });
-//
-// // demonstrates use of spies to intercept and test method calls
-// it("tells the current song if the user has made it a favorite", function() {
-//   spyOn(song, 'persistFavoriteStatus');
-//
-//   player.play(song);
-//   player.makeFavorite();
-//
-//   expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
-// });
-//
-// //demonstrates use of expected exceptions
-// describe("#resume", function() {
-//   it("should throw an exception if song is already playing", function() {
-//     player.play(song);
-//
-//     expect(function() {
-//       player.resume();
-//     }).toThrowError("song is already playing");
-//   });
-// });
+  it("calling sendInputToBackEnd should return a string of words", function() {
+    var returnedString = sendInputToBackEnd();
+    var typeOf = typeof returnedString;
+    expect(typeOf).toBe("string");
+  });
+
+  // it("calling displayWords should add the words to the DOM", function() {
+  //   var returnedString = sendInputToBackEnd();
+  //   displayWords(returnedString);
+  //   var elementValue = document.getElementById('words').innerHTML;
+  //   expect(elementValue).toBe(returnedString);
+  // });
+
+  it("calling display words should add each word as a li element to an ul element", function() {
+    var returnedString = sendInputToBackEnd();
+    displayWords(returnedString);
+    var liInDOM = (document.getElementById('words').innerHTML.indexOf('<li>') != -1);
+    expect(liInDOM).toBe(true);
+  });
+
+
+
 });
