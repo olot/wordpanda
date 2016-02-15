@@ -54,7 +54,7 @@ tape('when the url contains "/define" the findwords method should be invoked', f
       console.log('data: '+ data);
     });
     res.on('end', function() {
-      t.ok(data.indexOf('[]') > -1, "woooo");
+      t.ok(data.indexOf('[]') > -1, "well done");
       t.end();
     });
   });
@@ -81,10 +81,10 @@ tape("Does server return 404 and 'Not found' for unknown URL?", function(t){
 
 
 tape('test the length of the array, it should return 5', function(t) {
-  shot.inject(server.handler, {method: 'GET', url: 'http://localhost:3000/word=blah'}, function(res){
+  shot.inject(server.handler, {method: 'GET', url: 'http://localhost:3000/define'}, function(res){
       var actual = res.payload;
-      var result = 'blah blah';
-      t.deepEqual=(actual, result, "server returns expected array length and expected result.");
+      var result = 'ter';
+      t.deepEqual(actual, result, "server returns expected array length and expected result.");
       t.end();
     });
 });
