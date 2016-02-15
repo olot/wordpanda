@@ -20,7 +20,7 @@ li {
   background-color: #e2b279;
   background-repeat: no-repeat;
   color: white;
-  display: inline;
+  display: inline-block;
   height: 100px;
   font-size: 1.3em;
 }

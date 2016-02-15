@@ -13,6 +13,7 @@ function sendInputToBackEnd(input) {
 }
 
 document.getElementById("button").addEventListener("click", function() {
+  console.log("button clicked");
   input = document.getElementById('search').value;
   if(input.length >= 3) {
     sendInputToBackEnd(input);
@@ -22,6 +23,7 @@ document.getElementById("button").addEventListener("click", function() {
 
 function displayWords(string) {
   var wordArray = string.split(",");
+  console.log(wordArray);
   var HTMLstring = "";
   wordArray.forEach(function(el, i){
     HTMLstring += "<li id=" + '"wordResults' + i +'"' + ">" + el + "</li>";
