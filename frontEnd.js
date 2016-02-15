@@ -1,4 +1,6 @@
 var input;
+var definitionElement = document.createElement('p');
+definitionElement.id = "definition";
 
 function sendInputToBackEnd(input) {
   var request = new XMLHttpRequest();
@@ -74,8 +76,7 @@ function getDefinition(clickedWord) {
 }
 
 function displayDefinition(definitionFromServer) {
-  var definitionElement = document.createElement('p');
-  definitionElement.id = "definition";
+  definitionElement.innerHTML = "";
   definitionElement.innerHTML = definitionFromServer;
   document.getElementById('words').appendChild(definitionElement);
 }
