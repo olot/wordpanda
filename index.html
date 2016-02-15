@@ -3,16 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Word Panda</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id='container'>
+    <div id='container' class="grid-container">
       <h1>Word Panda</h1>
-      <input type='text' id='search' placeholder="type here"> </input>
-      <button class="button" id="button">Click</button>
-
-      <div id="possibleWords">
-          <ul id="words"> </ul>
+      <div class="panda row">
+        <!-- <img src="http://www.clipartbest.com/cliparts/RcG/Ern/RcGErn7cL.png" alt="panda" /> -->
+        <img src="http://www.clipartbest.com/cliparts/xTg/n7L/xTgn7LqGc.png" alt="" />
       </div>
+      <div class="row">
+        <input type='text' id='search' placeholder="type here" class=""> </input>
+      </div>
+      <div class="row">
+        <button class="button" id="button" class="">Search</button>
+      </div>
+
+
+      <div id="possibleWords" class="row">
+
+      </div>
+
     </div>
     <script type="text/javascript" src="./index.js"></script>
   </body>
