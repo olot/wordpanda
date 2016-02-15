@@ -1,37 +1,93 @@
-var http = require('http');
+//
+// require('env2')('./config.env');
+var http = require("http");
+var fs = require("fs");
+
 var port = process.env.PORT || 3000;
-var ob = require('./index.js');
-var fs = require('fs');
-var index = fs.readFileSync(__dirname + '/index.html');
-ob.import(function(){});
-var word = "co";
 
-
-
-http.createServer(function handler(request, response) {
-
-var url = request.url;
-
-  if (url.length === 1) {
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.end(index.toString());
-  } else if (url.indexOf("/define") > -1) {
-  var match = ob.findWord(word);
-
-} else if (url === '/favicon.ico') {
-
-response.writeHead(200, {'Content-Type': 'image/x-icon'} );
-response.end();
+function handler(req, res) {
+	var url = req.url;
+	if (url.length === 1) {
+		res.writeHead(200, {"Content-type": "text/html"});
+		fs.readFile(__dirname.replace("/src", "") + '/index.html', function(err, data) {
+			res.end(data);
+		});
+	} else {
+		fs.readFile(__dirname.replace("/src", "") + url, function(error, file){
+  			if (error) {
+				res.writeHead(404, {'Content-Type' : 'text/'});
+    			res.end('NOT FOUND!');
+  			} else {
+    			var ext = url.split('.')[1];
+			    res.writeHead(200, {'Content-Type' : 'text/' + ext});
+			    res.end(file);
+  			}
+		});
+	}
 }
-response.end('hello world!');
 
-}).listen(port);
+var server = http.createServer(handler);
+
+module.exports = {
+	handler: handler,
+	server: server
+};
+
+server.listen(port);
+
+console.log("Local host at " + port);
 
 
 
-console.log('node http server listening on http://localhost:' + port);
 
 
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// var http = require('http');
+// var port = process.env.PORT || 3000;
+// var backend = require('./backend.js');
+// var fs = require('fs');
+// var index = fs.readFileSync(__dirname + '/index.html');
+// ob.import(function(){});
+// var word = "co";
+//
+//
+//
+// http.createServer(function handler(request, response) {
+//
+// var url = request.url;
+//
+//   if (url.length === 1) {
+//     response.writeHead(200, {"Content-Type": "text/html"});
+//     response.end(index.toString());
+//   } else if (url.indexOf("/define") > -1) {
+//   var match = ob.findWord(word);
+//
+// } else if (url === '/favicon.ico') {
+//
+// response.writeHead(200, {'Content-Type': 'image/x-icon'} );
+// response.end();
+// }
+// response.end('hello world!');
+//
+// }).listen(port);
+//
+//
+//
+// console.log('node http server listening on http://localhost:' + port);
+//
+//
 // ob.import = function(callback) {
 //   if (!callback || typeof callback !== 'function') {
 //     return new Error('callback argument MUST be a function');
@@ -46,6 +102,6 @@ console.log('node http server listening on http://localhost:' + port);
 //
 // module.exports = {
 //
-//   handler: handler
-//   //import: ob
+//   handler: handler,
+//   import: ob
 // };

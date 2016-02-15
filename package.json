@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "env2": "^2.0.4"
+  },
   "devDependencies": {
     "hyperquest": "^1.2.0",
     "shot": "^3.0.1",
