@@ -3,7 +3,7 @@ var fs = require('fs');
 var ob = require('./backend.js');
 var index = fs.readFileSync(__dirname + '/index.html');
 var server = http.createServer(handler);
-var word = "cat";
+var define = require('./definition.js');
 
 
 //       response.end(index.toString());
@@ -17,19 +17,39 @@ var word = "cat";
 
 function handler(req, res) {
 	var url = req.url;
+	console.log("request.url:", url);
 	if (url.length === 1) {
 		res.writeHead(200, {"Content-type": "text/html"});
-		fs.readFile(__dirname.replace("/define", "") + '/index.html', function(err, data) {
-			res.end(data);
+		// fs.readFile(__dirname.replace("/define", "") + '/index.html', function(err, data) {
+		// 	res.end(data);
+		// });
+		res.end(index.toString());
+	}
+
+	else if (url.indexOf("/suggestedwords") > -1) {
+		var userInput = url.split('/')[2].toString();
+		res.writeHead(200, {
+      "Content-Type": "text/html"
+    });
+    var suggestedWords = ob.findWord(userInput);
+		res.end(suggestedWords.toString());
+  }
+
+	else if (url.indexOf("/define") > -1) {
+		var wordToBeDefined = url.split('/')[2].toString();
+		define.defineWord(wordToBeDefined, function(definition) {
+			res.writeHead(200, {
+				"Content-Type": "text/html"
+			});
+			res.end(definition);
 		});
-	} else if (url.indexOf("/define") > -1) {
-    ob.findWord(word);
+
   }
 
   else if (url === '/favicon.ico') {
 
-      response.writeHead(200, {'Content-Type': '/favicon.ico'} );
-      response.end();
+      res.writeHead(200, {'Content-Type': 'image/x-icon'} );
+      res.end();
     }
   else {
 		fs.readFile(__dirname.replace("/define", "") + url, function(error, file){

@@ -1,6 +1,6 @@
 var http = require('http');
 var port = process.env.PORT || 3000;
-var ac = require('./ac.js');
+var ac = require('./backend.js');
 var fs = require('fs');
 var index = fs.readFileSync(__dirname + '/index.html');
 
@@ -15,7 +15,7 @@ http.createServer(function handler(request, response) {
     response.end(index.toString());
   }
 
-  else if (request.url.indexOf('/define') > -1) {
+  else if (request.url.indexOf('/suggestedwords') > -1) {
     var userInput = request.url.split('/')[2].toString();
     response.writeHead(200, {
       "Content-Type": "text/html"
@@ -23,6 +23,16 @@ http.createServer(function handler(request, response) {
     //TODO call findword method
     var testArray = ['help', 'helical', 'helium', 'hello'];
     response.end(testArray.toString());
+  }
+
+  else if (request.url.indexOf('/define') > -1) {
+    var wordToDefine = request.url.split('/')[2].toString();
+    response.writeHead(200, {
+      "Content-Type": "text/html"
+    });
+    //TODO call findword method
+    var testDefinition = 'the definition that we got back from the server';
+    response.end(testDefinition.toString());
   }
 
   else {

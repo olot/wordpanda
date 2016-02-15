@@ -1,18 +1,20 @@
 require('env2')('./config.env');
-var apikey = process.env.DEFINE;
+var api_key = process.env.API_KEY;
 var request = require('request');
 
-function define(url, callback){
-	var lang = url.split('word.json')[1];
-	var word = url.split('')[0].replace('def=', '');
-    request("http://api.wordnik.com:80/v4/word.json/" + word, "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&" + api_key, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var result = JSON.parse(body).def[0].tr[0].text;
-            return callback(result);
-        }
-    });
+function defineWord(wordToBeDefined, callback) {
+  console.log('defineword is getting called');
+  var url = "http://api.wordnik.com:80/v4/word.json/" + wordToBeDefined + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=" + api_key;
+  console.log(url);
+  request(url, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var definition = JSON.parse(body)[0].text;
+      console.log("defintion in back end ----->", definition);
+      return callback(definition);
+    }
+  });
 }
 
 module.exports = {
-    define: define
+  defineWord: defineWord
 };

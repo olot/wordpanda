@@ -64,10 +64,31 @@ describe("user interface", function() {
   it("calling display words should add each word as a li element to an ul element", function() {
     var returnedString = sendInputToBackEnd();
     displayWords(returnedString);
-    var liInDOM = (document.getElementById('words').innerHTML.indexOf('<li>') != -1);
+    var liInDOM = (document.getElementById('words').innerHTML.indexOf('</li>') != -1);
     expect(liInDOM).toBe(true);
   });
 
+  it("clicking on a li element should fire off a definition function which will take the word and return its definition", function() {
+    var liElement = document.getElementById("wordResults0");
+    liElement.click();
+    var wordClicked = liElement.innerHTML;
+    var definition = getDefinition(wordClicked);
+    expect(typeof definition).toBe("string");
+  });
+
+  it("calling displayDefinition should append the definition to the DOM", function() {
+    var definition = getDefinition();
+    displayDefinition(definition);
+    var  defintionInDOM = (document.getElementById('words').innerHTML.indexOf('<p id="definition">') != -1);
+    expect(defintionInDOM).toBe(true);
+  });
+
+  it("calling displayDefinition should append the definition to the DOM", function() {
+    var definition = getDefinition();
+    displayDefinition(definition);
+    var  defintionInDOM = (document.getElementById('words').innerHTML.indexOf('<p id="definition">') != -1);
+    expect(defintionInDOM).toBe(true);
+  });
 
 
 });
