@@ -6,7 +6,10 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "env2": "^2.0.5",
+    "request": "^2.69.0"
+  },
   "devDependencies": {
     "codecov": "^1.0.1",
     "hyperquest": "^1.2.0",
