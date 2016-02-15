@@ -47,13 +47,18 @@ function displayWords(string) {
     console.log(clickedWord);
     getDefinition(clickedWord);
   });
+  document.getElementById('wordResults4').addEventListener("click", function(){
+    var clickedWord = document.getElementById('wordResults4').innerHTML;
+    console.log(clickedWord);
+    getDefinition(clickedWord);
+  });
 }
 
 function getDefinition(clickedWord){
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
     if (request.readyState === 4 && request.status === 200) {
-      console.log(request.responseText);
+      console.log("defintionfromserver------->", request.responseText);
       displayDefinition(request.response);
     }
   };
