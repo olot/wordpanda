@@ -4,6 +4,8 @@ var backend = require('../backend.js');
 var fs = require('fs');
 var shot = require('shot');
 var server = require('../server.js');
+var handler = require('../handler.js');
+
 
 tape("Test 1 = 1", function(el) {
   el.equal(1, 1, "Passed!");
@@ -57,6 +59,7 @@ tape('when the url contains "/define" the findwords method should be invoked', f
     });
   });
 });
+
 
 
 tape("Does server return css or javascript pages", function(t){

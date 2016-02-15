@@ -2,8 +2,11 @@
 // require('env2')('./config.env');
 var http = require("http");
 var fs = require("fs");
-
+var handler = require('./handler.js');
+var ob = require('./backend.js');
+var index = fs.readFileSync(__dirname + '/index.html');
 var port = process.env.PORT || 3000;
+
 
 function handler(req, res) {
 	var url = req.url;
@@ -105,3 +108,7 @@ console.log("Local host at " + port);
 //   handler: handler,
 //   import: ob
 // };
+
+
+http.createServer(handler).listen(port);
+console.log('node http server listening on http://localhost:' + port);
