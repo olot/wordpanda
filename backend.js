@@ -11,12 +11,14 @@ var words = fs.readFileSync("words.txt", "utf8").split("\n");
     return callback(err, ob.words);
 }
 
-ob.findWord = function (word) {
+ob.findWord = function (cat) {
   // who wants to volunteer to implement the method?
   var found = [];
-  for (var i = 0; i < ob.words.length; i++) {
-    if (ob.words[i].search(word) === 0) {
-      found.push(ob.words[i]);
+  console.log("word", cat);
+  console.log(">>>>>>>>", words.length);
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].search(cat) === 0) {
+      found.push(words[i]);
       if(found.length >= 5){
         break;
       }
@@ -26,38 +28,19 @@ ob.findWord = function (word) {
   return found;
 };
 
+// var test = new ob();
+// test.findWord("cat");
+
 
 module.exports =  ob;
-// var fs = require("fs");
-// var words = fs.readFileSync("words.txt", "utf8").split("\n");
-//
-// function autocomplete( url ){
-//     var userInput = url.replace("/word=","");
-//     var results = [];
-//     var check = '^' + userInput.toLowerCase();
-//     var re = new RegExp( check );
-//     for( var i=0, x=words.length-1; i < x ; i++ ){
-//         var lowerWord = words[i].toLowerCase();
-//         if( lowerWord.match( re ) ){
-//             results.push( lowerWord );
-//             if( results.length >= 10 ){
-//                 break;
-//             }
-//         }
-//     }
-//     return results;
-// }
-
-// module.exports = {
-//     words        :   words,
-// };
 
 
 
 
 
 
-//
+
+
 // module.exports = function handler(req, res) {
 //     if (req.url.length === 1) {
 //         res.writeHead(200, {"Content-Type": "text/plain"});
