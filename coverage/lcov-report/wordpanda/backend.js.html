@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">35.29% </span>
+        <span class="strong">31.58% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/17</span>
+        <span class='fraction'>6/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">35.29% </span>
+        <span class="strong">31.58% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/17</span>
+        <span class='fraction'>6/19</span>
       </div>
     </div>
   </div>
@@ -104,24 +104,7 @@
 59
 60
 61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+62</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,37 +125,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,12 +178,14 @@ var words = fs.readFileSync("words.txt", "utf8").split("\n");
 <span class="cstat-no" title="statement not covered" >    return callback(err, ob.words);</span>
 }
 &nbsp;
-ob.findWord = <span class="fstat-no" title="function not covered" >function (word) {</span>
+ob.findWord = <span class="fstat-no" title="function not covered" >function (cat) {</span>
   // who wants to volunteer to implement the method?
 <span class="cstat-no" title="statement not covered" >  var found = [];</span>
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; ob.words.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >    if (ob.words[i].search(word) === 0) {</span>
-<span class="cstat-no" title="statement not covered" >      found.push(ob.words[i]);</span>
+<span class="cstat-no" title="statement not covered" >  console.log("word", cat);</span>
+<span class="cstat-no" title="statement not covered" >  console.log("&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;", words.length);</span>
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; words.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >    if (words[i].search(cat) === 0) {</span>
+<span class="cstat-no" title="statement not covered" >      found.push(words[i]);</span>
 <span class="cstat-no" title="statement not covered" >      if(found.length &gt;= 5){</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
       }
@@ -227,38 +195,19 @@ ob.findWord = <span class="fstat-no" title="function not covered" >function (wor
 <span class="cstat-no" title="statement not covered" >  return found;</span>
 };
 &nbsp;
+// var test = new ob();
+// test.findWord("cat");
+&nbsp;
 &nbsp;
 module.exports =  ob;
-// var fs = require("fs");
-// var words = fs.readFileSync("words.txt", "utf8").split("\n");
-//
-// function autocomplete( url ){
-//     var userInput = url.replace("/word=","");
-//     var results = [];
-//     var check = '^' + userInput.toLowerCase();
-//     var re = new RegExp( check );
-//     for( var i=0, x=words.length-1; i &lt; x ; i++ ){
-//         var lowerWord = words[i].toLowerCase();
-//         if( lowerWord.match( re ) ){
-//             results.push( lowerWord );
-//             if( results.length &gt;= 10 ){
-//                 break;
-//             }
-//         }
-//     }
-//     return results;
-// }
-&nbsp;
-// module.exports = {
-//     words        :   words,
-// };
 &nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
-//
+&nbsp;
+&nbsp;
 // module.exports = function handler(req, res) {
 //     if (req.url.length === 1) {
 //         res.writeHead(200, {"Content-Type": "text/plain"});
@@ -283,7 +232,7 @@ module.exports =  ob;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 15 2016 11:19:20 GMT+0000 (GMT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 15 2016 15:54:41 GMT+0000 (GMT)
 </div>
 </div>
 <script src="../prettify.js"></script>
