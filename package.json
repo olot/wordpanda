@@ -11,8 +11,13 @@
     "request": "^2.69.0"
   },
   "devDependencies": {
+    "codecov": "^1.0.1",
     "hyperquest": "^1.2.0",
+<<<<<<< HEAD
     "istanbul-cobertura-badger": "^1.2.1",
+=======
+    "istanbul": "^0.4.2",
+>>>>>>> master
     "shot": "^3.0.1",
     "tape": "^4.4.0"
   },
