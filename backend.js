@@ -12,19 +12,30 @@ var words = fs.readFileSync("words.txt", "utf8").split("\n");
 }
 
 ob.findWord = function (cat) {
-  var found = [];
-  console.log("word", cat);
-  console.log(">>>>>>>>", words.length);
-  for (var i = 0; i < words.length; i++) {
-    if (words[i].search(cat) === 0) {
-      found.push(words[i]);
-      if(found.length >= 5){
-        break;
-      }
-    }
-  }
-  console.log(found);
-  return found;
+  matchingWordsArray = [];
+  console.log('----'+cat+'---');
+  //console.log(">>>>>>>>>>WORD", cat);
+  //console.log(">>>>>>>>", words.length);
+  var wordSearchedFor = new RegExp("^" + cat, 'g');
+  var matches = words.filter(function(word) {
+    return word.match(wordSearchedFor);
+  });
+  return matches.splice(0, 5);
+  // for (var i = 0; i < words.length; i++) {
+  //   if (words[i].match(wordSearchedFor)) {
+  //     console.log('xctfvygbhunjvtcr');
+  //     matchingWordsArray.push(words[i]);
+  //     if (matchingWordsArray.length >= 5) {
+  //       break;
+  //      }
+  //     //  else {
+  //     //   matchingWordsArray;
+  //     // }
+  //   // } else {
+  //       // console.log('no words matched!!');
+  //   }
+  // }
+  // return matchingWordsArray;
 };
 
 // var test = new ob();
@@ -32,29 +43,3 @@ ob.findWord = function (cat) {
 
 
 module.exports =  ob;
-
-
-
-
-
-
-
-
-// module.exports = function handler(req, res) {
-//     if (req.url.length === 1) {
-//         res.writeHead(200, {"Content-Type": "text/plain"});
-//         res.write("Welcome");
-//         res.end(" to Testing");
-//     }
-//     if (req.url.indexOf('richard') > -1) {
-//         res.writeHead(200, {"Content-Type": "text/html"});
-//         res.end("<h1>Richard</h1>");
-//     }
-//     // if (req.url.indexOf('post-at-me-bro') > -1) {
-//     //     res.writeHead(200, {"Content-Type": "text/html"});
-//     //     res.end("posted-me");
-//     // }
-//     else {
-//         res.end();
-//     }
-// };
