@@ -18,6 +18,7 @@ function handler(req, res) {
 
 	else if (url.indexOf("/suggestedwords") > -1) {
     var userInput = url.split('/')[2].toString();
+    console.log(userInput);
     res.writeHead(200, {
       "Content-Type": "text/html"
     });
