@@ -38,7 +38,6 @@ http.createServer(function handler(request, response) {
   else {
     fs.readFile(__dirname + url, function(error, file) {
       if (error) {
-        console.log(error);
         response.end();
       } else {
         var ext = url.split('.')[1];
