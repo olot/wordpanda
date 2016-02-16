@@ -54,6 +54,32 @@ tape('test all endpoints exist', function (t) {
   });
 });
 
+// function serveTest(url, callback){
+//   tape('test the endpoint: ' + url, function(t){
+//     var request = {
+//       method : 'GET',
+//       url : url
+//     };
+//     shot.inject(request, function(res){
+//       callback(res, t);
+//       t.end();
+//     });
+//   });
+// }
+//
+// function statusTest(code){
+//   return function(res, t) {
+//     t.equal(res.statusCode, code, "test passed!");
+//   };
+// }
+//
+// serveTest('/', statusTest(200));
+// serveTest('/define', statusTest(200));
+// serveTest('/favicon.ico', statusTest(200));
+// serveTest('/suggestedwords', statusTest(200));
+
+
+
 tape("Does server return css or javascript pages", function(t){
     shot.inject(server.handler, {method: 'GET', url: 'http://localhost:3000/style.css'}, function(res){
         fs.readFile(__dirname.replace("/test", "") + '/style.css', function(err, cssText) {
@@ -98,9 +124,8 @@ tape("Test to check that findWord function returns expected values", function(t)
   var actual =backend.findWord('cat');
   var result = [ 'cat', 'catabaptist', 'catabases', 'catabasis', 'catabatic' ];
   t.deepEqual(actual,result, "yay lots of cats (5)");
+  t.end();
 });
-
-
 
 tape("teardown", function(t){
     server.server.close();
