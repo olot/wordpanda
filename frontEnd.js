@@ -32,38 +32,29 @@ document.getElementById("search").addEventListener("keyup", function() {
 
 
 function displayWords(string) {
+
   var wordArray = string.split(",");
   console.log(wordArray);
   var HTMLstring = "";
+
   wordArray.forEach(function(el, i) {
-    HTMLstring += "<li id=" + '"wordResults' + i + '"' + ">" + el + "</li>";
+    var id = '"wordResults' + i + '"';
+    HTMLstring += "<li class='liElement' id=" + id + ">" + el + "</li>";
   });
   document.getElementById('words').innerHTML = HTMLstring;
-  document.getElementById('wordResults0').addEventListener("click", function() {
-    var clickedWord = document.getElementById('wordResults0').innerHTML;
-    console.log(clickedWord);
+
+  var liArray = document.getElementsByClassName("liElement");
+  console.log(liArray);
+
+  function clickHandler(e) {
+    console.log(e);
+    var clickedWord = e.target.innerHTML;
     getDefinition(clickedWord);
-  });
-  document.getElementById('wordResults1').addEventListener("click", function() {
-    var clickedWord = document.getElementById('wordResults1').innerHTML;
-    console.log(clickedWord);
-    getDefinition(clickedWord);
-  });
-  document.getElementById('wordResults2').addEventListener("click", function() {
-    var clickedWord = document.getElementById('wordResults2').innerHTML;
-    console.log(clickedWord);
-    getDefinition(clickedWord);
-  });
-  document.getElementById('wordResults3').addEventListener("click", function() {
-    var clickedWord = document.getElementById('wordResults3').innerHTML;
-    console.log(clickedWord);
-    getDefinition(clickedWord);
-  });
-  document.getElementById('wordResults4').addEventListener("click", function() {
-    var clickedWord = document.getElementById('wordResults4').innerHTML;
-    console.log(clickedWord);
-    getDefinition(clickedWord);
-  });
+  }
+
+  for (var i = 0; i < liArray.length; i++) {
+    liArray[i].addEventListener("click", clickHandler);
+  }
 }
 
 function getDefinition(clickedWord) {
