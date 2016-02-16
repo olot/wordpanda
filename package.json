@@ -7,10 +7,11 @@
     "test": "test"
   },
   "dependencies": {
-    "env2": "^2.0.5",
-    "request": "^2.69.0"
+
   },
   "devDependencies": {
+    "env2": "^2.0.5",
+    "request": "^2.69.0",
     "codecov": "^1.0.1",
     "hyperquest": "^1.2.0",
     "istanbul-cobertura-badger": "^1.2.1",
@@ -19,8 +20,9 @@
     "tape": "^4.4.0"
   },
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "test": "./node_modules/.bin/tape ./test/test.js",
+    "start": "node server.js",
+    "coverage": "istanbul cover ./test/test.js"
   },
   "repository": {
     "type": "git",
