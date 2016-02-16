@@ -6,10 +6,13 @@ var handler = require('./handler.js');
 var ob = require('./backend.js');
 var index = fs.readFileSync(__dirname + '/index.html');
 
-http.createServer(handler).listen(port);
-
 console.log("Node http server listening on http://localhost:" + port);
 
+var server = http.createServer(handler);
+
 module.exports = {
-  handler : handler
+	handler: handler,
+	server: server
 };
+
+server.listen(port);
