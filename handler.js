@@ -27,7 +27,7 @@ function handler(req, res) {
   }
 
 	else if (url.indexOf("/define") > -1) {
-    var wordToBeDefined = url.split('/')[1].toString();
+    var wordToBeDefined = url.split('/')[2].toString();
     define.defineWord(wordToBeDefined, function(definition) {
       res.writeHead(200, {
         "Content-Type": "text/html"
