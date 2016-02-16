@@ -1,3 +1,6 @@
+ [![codecov.io](https://codecov.io/github/olot/wordpanda/coverage.svg?branch=master)](https://codecov.io/github/olot/wordpanda?branch=master) [![Dependency Status](https://david-dm.org/olot/wordpanda.svg)](https://david-dm.org/olot/wordpanda) [![devDependency Status](https://david-dm.org/olot/wordpanda/dev-status.svg)](https://david-dm.org/oloy/wordpanda#info=devDependencies)
+
+
 # Word Panda
 
 ![travis-ci](https://travis-ci.org/olot/wordpanda.svg?branch=master)

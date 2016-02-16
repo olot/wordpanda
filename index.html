@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Word Panda</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id='container' class="grid-container">
+      <div id=background></div>
+      <div id="foreground">
+        <h1>Word Panda</h1>
+        <div class="panda row">
+          <!-- <img src="http://www.clipartbest.com/cliparts/RcG/Ern/RcGErn7cL.png" alt="panda" /> -->
+          <img src="http://www.clipartbest.com/cliparts/xTg/n7L/xTgn7LqGc.png" alt="panda" />
+        </div>
+        <div class="row">
+          <input type='text' id='search' placeholder="type here" class=""> </input>
+        </div>
 
-<head>
-  <meta charset="utf-8">
-  <title>Word Panda</title>
-</head>
+        <div id="definition" class="dont-display">
+        </div>
 
-<body>
-  <div id='container'>
-    <h1>Word Panda</h1>
-    <input type='text' id='search' placeholder="type here"> </input>
-    <!-- <button class="button" id="button">Click</button> -->
 
-    <div id="possibleWords">
-      <ul id="words"> </ul>
-    </div>
+        <div id="possibleWords" class="row">
+          <ul id="words"></ul>
+        </div>
+
+      </div>
+
   </div>
+
   <script type="text/javascript" src="./frontEnd.js"></script>
 </body>
 

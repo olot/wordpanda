@@ -1,6 +1,8 @@
 var input;
 var definitionElement = document.createElement('p');
 definitionElement.id = "definition";
+var definitionTitle = document.createElement('h2');
+
 
 function sendInputToBackEnd(input) {
   var request = new XMLHttpRequest();
@@ -31,6 +33,7 @@ document.getElementById("search").addEventListener("keyup", function() {
 
 function displayWords(string) {
   var wordArray = string.split(",");
+  console.log(wordArray);
   var HTMLstring = "";
   wordArray.forEach(function(el, i) {
     HTMLstring += "<li id=" + '"wordResults' + i + '"' + ">" + el + "</li>";
@@ -77,6 +80,10 @@ function getDefinition(clickedWord) {
 
 function displayDefinition(definitionFromServer) {
   definitionElement.innerHTML = "";
+  definitionTitle.innerHTML = "";
+  definitionTitle.innerHTML = 'Definition';
   definitionElement.innerHTML = definitionFromServer;
-  document.getElementById('words').appendChild(definitionElement);
+  document.getElementById('definition').className = "";
+  document.getElementById('definition').appendChild(definitionTitle);
+  document.getElementById('definition').appendChild(definitionElement);
 }
