@@ -12,7 +12,6 @@ var words = fs.readFileSync("words.txt", "utf8").split("\n");
 }
 
 ob.findWord = function (cat) {
-  // who wants to volunteer to implement the method?
   var found = [];
   console.log("word", cat);
   console.log(">>>>>>>>", words.length);
