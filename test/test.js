@@ -1,8 +1,9 @@
 var tape = require('tape');
+var shot = require('shot');
+// var dispatch = require('dispatch');
 var hyperquest = require('hyperquest');
 var backend = require('../backend.js');
 var fs = require('fs');
-var shot = require('shot');
 var server = require('../server.js');
 var handler = require('../handler.js');
 

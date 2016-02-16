@@ -21,8 +21,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/tape ./test/test.js",
-    "start": "node server.js",
-    "coverage": "istanbul cover ./test/test.js"
+    "coverage": "istanbul cover ./test/test.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
