@@ -46,21 +46,39 @@ tape('Checking that the client has recived the html <h1> tag', function (t) {
   });
 });
 
-tape('when the url contains "/define" the findwords method should be invoked', function (t) {
-  shot.inject(server.handler, {method: 'GET', url: '/define'}, function(res){
-    var data = '';
-    console.log(res);
-    // res.on('data', function(chunk) {
-    //
-    //   data += chunk.toString('utf8');
-    //   console.log('data: '+ data);
-    // });
-    res.on('end', function() {
-      t.ok(data.indexOf('[]') > -1, "well done define passed.");
-      t.end();
-    });
+tape('test all endpoints exist', function (t) {
+  var endpointUrl = '/define';
+  shot.inject(server.handler, {method: 'GET', url: endpointUrl}, function(res){
+    t.equal(res.statusCode, 200, 'endpoint exists');
+    t.end();
   });
 });
+
+// function serveTest(url, callback){
+//   tape('test the endpoint: ' + url, function(t){
+//     var request = {
+//       method : 'GET',
+//       url : url
+//     };
+//     shot.inject(request, function(res){
+//       callback(res, t);
+//       t.end();
+//     });
+//   });
+// }
+//
+// function statusTest(code){
+//   return function(res, t) {
+//     t.equal(res.statusCode, code, "test passed!");
+//   };
+// }
+//
+// serveTest('/', statusTest(200));
+// serveTest('/define', statusTest(200));
+// serveTest('/favicon.ico', statusTest(200));
+// serveTest('/suggestedwords', statusTest(200));
+
+
 
 tape("Does server return css or javascript pages", function(t){
     shot.inject(server.handler, {method: 'GET', url: 'http://localhost:3000/style.css'}, function(res){
@@ -102,13 +120,12 @@ tape("Does server return 404 and 'Not found' for unknown URL?", function(t){
 //     });
 // });
 
-tape("Server responds with a maximum array of 5 words from a minimum 3-character user input", function(t){
+tape("Test to check that findWord function returns expected values", function(t){
   var actual =backend.findWord('cat');
   var result = [ 'cat', 'catabaptist', 'catabases', 'catabasis', 'catabatic' ];
   t.deepEqual(actual,result, "yay lots of cats (5)");
+  t.end();
 });
-
-
 
 tape("teardown", function(t){
     server.server.close();
