@@ -9,3 +9,7 @@ var index = fs.readFileSync(__dirname + '/index.html');
 http.createServer(handler).listen(port);
 
 console.log("Node http server listening on http://localhost:" + port);
+
+module.exports = {
+  handler : handler
+};
