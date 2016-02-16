@@ -1,5 +1,12 @@
 # Word Panda
 
+![travis-ci](https://travis-ci.org/olot/wordpanda.svg?branch=master)
+[![codecov.io](https://codecov.io/github/olot/wordpanda/coverage.svg?branch=master)](https://codecov.io/github/olot/wordpanda?branch=master)
+[![Dependency Status](https://david-dm.org/olot/wordpanda.svg)](https://david-dm.org/olot/wordpanda)
+[![devDependency Status](https://david-dm.org/olot/wordpanda/dev-status.svg)](https://david-dm.org/oloy/wordpanda#info=devDependencies)
+
+
+
 ## What
 This application uses a dictionary API to get the definition for any word that the user wants to type in.   
 
