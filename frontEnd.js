@@ -1,6 +1,8 @@
 var input;
 var definitionElement = document.createElement('p');
 definitionElement.id = "definition";
+var definitionTitle = document.createElement('h2');
+
 
 function sendInputToBackEnd(input) {
   var request = new XMLHttpRequest();
@@ -78,6 +80,10 @@ function getDefinition(clickedWord) {
 
 function displayDefinition(definitionFromServer) {
   definitionElement.innerHTML = "";
+  definitionTitle.innerHTML = "";
+  definitionTitle.innerHTML = 'Definition';
   definitionElement.innerHTML = definitionFromServer;
-  document.getElementById('words').appendChild(definitionElement);
+  document.getElementById('definition').className = "";
+  document.getElementById('definition').appendChild(definitionTitle);
+  document.getElementById('definition').appendChild(definitionElement);
 }
