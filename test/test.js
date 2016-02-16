@@ -55,10 +55,10 @@ tape('when the url contains "/define" the findwords method should be invoked', f
     //   data += chunk.toString('utf8');
     //   console.log('data: '+ data);
     // });
-    // res.on('end', function() {
-    //   t.ok(data.indexOf('[]') > -1, "well done define passed.");
-    //   t.end();
-    // });
+    res.on('end', function() {
+      t.ok(data.indexOf('[]') > -1, "well done define passed.");
+      t.end();
+    });
   });
 });
 
