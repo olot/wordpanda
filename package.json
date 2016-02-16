@@ -19,7 +19,7 @@
     "tape": "^4.4.0"
   },
   "scripts": {
-    "test": "test",
+    "test": "./node_modules/.bin/tape ./test/test.js",
     "start": "node server.js"
   },
   "repository": {
