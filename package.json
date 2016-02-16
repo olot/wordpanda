@@ -18,8 +18,8 @@
     "tape": "^4.4.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/tape ./test/test.js",
-    "coverage": "istanbul cover ./test/test.js",
+    "test": "tape ./test/test.js",
+    "coverage": "istanbul cover tape ./test/test.js",
     "start": "node server.js"
   },
   "repository": {
