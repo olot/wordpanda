@@ -6,22 +6,20 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
-    "env2": "^2.0.5",
-    "request": "^2.69.0",
     "codecov": "^1.0.1",
+    "env2": "^2.0.5",
     "hyperquest": "^1.2.0",
-    "istanbul-cobertura-badger": "^1.2.1",
     "istanbul": "^0.4.2",
+    "istanbul-cobertura-badger": "^1.2.1",
+    "request": "^2.69.0",
     "shot": "^3.0.1",
     "tape": "^4.4.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/tape ./test/test.js",
-    "coverage": "istanbul cover ./test/test.js",
+    "coverage": "istanbul cover tape ./test/*",
     "start": "node server.js"
   },
   "repository": {
