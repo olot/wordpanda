@@ -46,19 +46,11 @@ tape('Checking that the client has recived the html <h1> tag', function (t) {
   });
 });
 
-tape('when the url contains "/define" the findwords method should be invoked', function (t) {
-  shot.inject(server.handler, {method: 'GET', url: '/define'}, function(res){
-    var data = '';
-    console.log(res);
-    // res.on('data', function(chunk) {
-    //
-    //   data += chunk.toString('utf8');
-    //   console.log('data: '+ data);
-    // });
-    res.on('end', function() {
-      t.ok(data.indexOf('[]') > -1, "well done define passed.");
-      t.end();
-    });
+tape('test all endpoints exist', function (t) {
+  var endpointUrl = '/define';
+  shot.inject(server.handler, {method: 'GET', url: endpointUrl}, function(res){
+    t.equal(res.statusCode, 200, 'endpoint exists');
+    t.end();
   });
 });
 
@@ -102,7 +94,7 @@ tape("Does server return 404 and 'Not found' for unknown URL?", function(t){
 //     });
 // });
 
-tape("Server responds with a maximum array of 5 words from a minimum 3-character user input", function(t){
+tape("Test to check that findWord function returns expected values", function(t){
   var actual =backend.findWord('cat');
   var result = [ 'cat', 'catabaptist', 'catabases', 'catabasis', 'catabatic' ];
   t.deepEqual(actual,result, "yay lots of cats (5)");
