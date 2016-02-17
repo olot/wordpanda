@@ -28,6 +28,8 @@ dictionary ```API``` to get the definitions.
 
 FontEnd testing is done using ```Jasmine```, and for the backend testing is used ```TAPE```. This application is also covered with ```Istanbul```, our goal is to reach 90% of test coverage.
 
+This application is deployed on ```Heroku``` see [here](https://word-panda.herokuapp.com/).
+
 
 #### Our sketch
 
