@@ -47,3 +47,17 @@ This application is deployed on ```Heroku``` see [here](https://word-panda.herok
 * [Facebook API](https://developers.facebook.com/docs/apis-and-sdks)
 
 * [Twitter API](https://dev.twitter.com/rest/public)
+
+## References
+
+* [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#view-logs)
+
+* [Dictionary API](http://developer.wordnik.com/)
+
+* [Jasmin](http://jasmine.github.io/)
+
+* [Istanbul](https://github.com/gotwarlost/istanbul)
+
+* [Repo badges](https://github.com/dwyl/repo-badges)
+
+*[Node.js](https://nodejs.org/en/)
