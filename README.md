@@ -60,4 +60,4 @@ This application is deployed on ```Heroku``` see [here](https://word-panda.herok
 
 * [Repo badges](https://github.com/dwyl/repo-badges)
 
-*[Node.js](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
