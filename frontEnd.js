@@ -39,16 +39,20 @@ function displayWords(string) {
 
   wordArray.forEach(function(el, i) {
     var id = '"wordResults' + i + '"';
-    HTMLstring += "<li class='liElement' id=" + id + ">" + el + "</li>";
+    HTMLstring += "<a href='#definition'><li class='liElement' id=" + id + ">"+ el + "</li><a>";
+    console.log("-------",HTMLstring);
   });
   document.getElementById('words').innerHTML = HTMLstring;
 
   var liArray = document.getElementsByClassName("liElement");
-  console.log(liArray);
+  console.log("li Array ----",liArray);
 
   function clickHandler(e) {
-    console.log(e);
+    for (i=0; i<liArray.length; i++){
+      liArray[i].classList.remove('active');
+    }
     var clickedWord = e.target.innerHTML;
+    e.target.classList.add('active');
     getDefinition(clickedWord);
   }
 

@@ -44,6 +44,7 @@ ul {
   width: 400px;
   max-width: 100%;
   padding-left: 0px;
+  margin-top: 0px;
 }
 
 li {
@@ -58,6 +59,11 @@ li {
   max-width: 100%;
   line-height: 99px;
   border-radius: 5px;
+}
+
+.active {
+  color: #210301;
+  font-weight: 700;
 }
 
 .panda.row {
@@ -88,12 +94,6 @@ li {
   box-shadow: 2px 2px 2px #D4D1D1;
   border: 0.5px solid #D4D1D1;
 }
-/* Redundant styling
-#button {
-  height: 40px;
-  width: 80px;
-}
-*/
 
 .dont-display {
   display: none;
@@ -102,8 +102,9 @@ li {
 #definition {
   width: 450px;
   max-width: 96%;
-  height: auto;;
+  height: auto;
   margin: auto;
+  margin-bottom: 16px;
   border: 5px solid #88A733; /*#7C982E*/
   text-align: left;
   border-radius: 8px;
@@ -133,6 +134,7 @@ li {
   ul {
     margin-bottom: 0px;
   }
+
 }
 
 @media only screen and (min-width: 700px) {
@@ -140,6 +142,36 @@ li {
       left: 300px;
       width: 70%;
       position: relative;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  #background {
+      left: 400px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  #background {
+      left: 450px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  #background {
+      left: 500px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (max-width: 849px) {
+  #search {
+    margin-bottom: 20px;
   }
 }
 
