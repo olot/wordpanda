@@ -135,9 +135,6 @@ li {
     margin-bottom: 0px;
   }
 
-  #search {
-    margin-bottom: 20px;
-  }
 }
 
 @media only screen and (min-width: 700px) {
@@ -169,6 +166,12 @@ li {
       left: 500px;
       width: 70%;
       position: relative;
+  }
+}
+
+@media only screen and (max-width: 849px) {
+  #search {
+    margin-bottom: 20px;
   }
 }
 
