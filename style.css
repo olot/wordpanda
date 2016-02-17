@@ -44,6 +44,7 @@ ul {
   width: 400px;
   max-width: 100%;
   padding-left: 0px;
+  margin-top: 0px;
 }
 
 li {
@@ -93,12 +94,6 @@ li {
   box-shadow: 2px 2px 2px #D4D1D1;
   border: 0.5px solid #D4D1D1;
 }
-/* Redundant styling
-#button {
-  height: 40px;
-  width: 80px;
-}
-*/
 
 .dont-display {
   display: none;
@@ -107,8 +102,9 @@ li {
 #definition {
   width: 450px;
   max-width: 96%;
-  height: auto;;
+  height: auto;
   margin: auto;
+  margin-bottom: 16px;
   border: 5px solid #88A733; /*#7C982E*/
   text-align: left;
   border-radius: 8px;
@@ -137,6 +133,10 @@ li {
 @media only screen and (max-width: 400px){
   ul {
     margin-bottom: 0px;
+  }
+
+  #search {
+    margin-bottom: 20px;
   }
 }
 
