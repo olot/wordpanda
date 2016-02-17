@@ -14,7 +14,7 @@ function defineWord(wordToBeDefined, callback) {
         definition = JSONArray.text;
       }
       else {
-        definition = 'Sorry no Definition!';
+        definition = 'Sorry no definition!';
       }
       console.log("defintion in back end ----->", definition);
       return callback(definition);

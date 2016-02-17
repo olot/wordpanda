@@ -60,6 +60,11 @@ li {
   border-radius: 5px;
 }
 
+.active {
+  color: #210301;
+  font-weight: 700;
+}
+
 .panda.row {
   margin-bottom: 20px;
 }
@@ -138,6 +143,30 @@ li {
 @media only screen and (min-width: 700px) {
   #background {
       left: 300px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  #background {
+      left: 400px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  #background {
+      left: 450px;
+      width: 70%;
+      position: relative;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  #background {
+      left: 500px;
       width: 70%;
       position: relative;
   }
